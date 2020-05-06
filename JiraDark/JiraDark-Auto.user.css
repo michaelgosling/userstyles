@@ -1,0 +1,38 @@
+/* ==UserStyle==
+@name         Jira Dark 2020 - Auto
+@namespace    mg-styles
+@version      1.0.0
+@description  A dark mode for Jira since atlassian sucks. Matches system dark mode.
+@author       Michael Gosling <mgosling94@gmail.com>
+@license      unlicense
+@preprocessor uso
+==/UserStyle== */
+
+@-moz-document domain("atlassian.net") {
+  @media (prefers-color-scheme: dark) {
+    html {
+      filter: invert(86%) hue-rotate(180deg) brightness(105%) contrast(105%);
+      background: rgb(30, 30, 30);
+    }
+    body {
+      background: white;
+    }
+    span[role="img"] {
+      filter: invert(100%) hue-rotate(180deg) brightness(105%) contrast(105%);
+    }
+    img, iframe, .emoji-common-emoji-sprite {
+      filter: invert(100%) hue-rotate(180deg) brightness(105%) contrast(105%);
+    }
+    /* Fix bug with white edges on sprint board */
+    #gh {
+      padding: 0 40px;
+    }
+    #content {
+      margin: 0;
+    }
+    /* Fix scroll background problems */
+    [data-testid="Content"]>div:first-child {
+      background: white;
+    }
+  }
+}
